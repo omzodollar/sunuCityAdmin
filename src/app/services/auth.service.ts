@@ -9,6 +9,7 @@ export class AuthService {
   erreur:String;
   private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
+  private authStatus:Boolean=false;
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router,private afAuth: AngularFireAuth) {
       this.user = _firebaseAuth.authState;
 
@@ -37,11 +38,14 @@ resetPassword(email: string) {
         console.log('Nice, it worked!');
         this.router.navigateByUrl('index');
         this.erreur="Nice, it worked!";
+        this.authStatus=true;
+
 
       })
       .catch(err => {
         console.log('Something went wrong: ', err.message);
-        this.erreur=err.message;
+        this.erreur="email ou mot de pase invalide";
+        this.authStatus=false;
 
       });
   }
@@ -72,7 +76,7 @@ signInWithFacebook() {
   }
   logout() {
     this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['login']);
+      this.router.navigate(['/pages', 'login']);
     });
   }
   private oAuthLogin(provider) {

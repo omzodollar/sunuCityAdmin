@@ -6,6 +6,7 @@ import { LayoutComponent } from './/layouts/layout.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { InformationComponent } from './pages/information/information.component';
 
 import { ColorsComponent } from './pages/ui/colors/colors.component';
 import { TypographyComponent } from './pages/ui/typography/typography.component';
@@ -56,8 +57,12 @@ const routes: Routes = [
         "component": LayoutComponent,
         "children": [
             {
-                path: "index",canActivate: [AuthGuardService],
+                path: "index",
                 component: HomeComponent
+            },
+            {
+                path: "/informations",canActivate: [AuthGuardService],
+                component: InformationComponent
             },
             {
                 path: "ui/colors",canActivate: [AuthGuardService],

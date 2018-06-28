@@ -11,6 +11,7 @@ import   { AngularFireModule }   from   'angularfire2' ;
 import   { AngularFireAuthModule }   from   'angularfire2/auth' ; 
 import   { AuthService }   from   './services/auth.service' ; 
 import { AuthGuardService } from './services/auth-guard.service';
+import { InformationComponent } from './pages/information/information.component';
 const firebaseConfig  ={
 apiKey: "AIzaSyCOXldPSGWLGI3elAN-naOXfTCxJ6Q_QY4",
 authDomain: "sunucity-7c866.firebaseapp.com",
@@ -23,6 +24,7 @@ messagingSenderId: "1050815094443"
 @NgModule({
   declarations: [
     AppComponent,
+    InformationComponent,
   ],
   imports: [
     BrowserModule,

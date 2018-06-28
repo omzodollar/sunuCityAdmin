@@ -16,7 +16,7 @@ export class AuthGuardService implements CanActivate {
             if(user) {
               resolve(true);
             } else {
-              this.router.navigate(['/pages', 'login']);
+              this.router.navigate(['/pages', 'error_404']);
               resolve(false);
             }
           }
