@@ -61,7 +61,7 @@ const routes: Routes = [
                 component: HomeComponent
             },
             {
-                path: "/informations",canActivate: [AuthGuardService],
+                path: "informations",canActivate: [AuthGuardService],
                 component: InformationComponent
             },
             {
